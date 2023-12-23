@@ -1,0 +1,261 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HuruChat - Real-Time Communication</title>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            color: #fff;
+            overflow-x: hidden;
+            perspective: 1px;
+            overflow-y: scroll;
+        }
+
+        header {
+            background: #e44d26;
+            padding: 2em 0;
+            text-align: center;
+        }
+
+        .parallax-bg {
+            perspective: 1px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .parallax-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1920x1080') center/cover fixed;
+            z-index: -1;
+            opacity: 0.2;
+            transform: translateZ(-1px) scale(2);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: #34495e;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px;
+            width: 300px;
+            transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #e44d26;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: #c6351b;
+        }
+
+        .user-circles {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .user-circle {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 0 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .user-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message-bubble {
+            background: #fff;
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 200px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .menu {
+            background: #e44d26;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .bottom-menu {
+            background: #e44d26;
+            padding: 1em;
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .menu a,
+        .bottom-menu a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .menu a:hover,
+        .bottom-menu a:hover {
+            color: #c6351b;
+        }
+
+        .animated {
+            animation-duration: 1s;
+        }
+
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Download</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="parallax-bg">
+        <header>
+            <h1>HuruChat</h1>
+            <p>Your Gateway to Seamless Real-Time Communication</p>
+        </header>
+
+        <div class="container">
+            <div class="card animated fadeInUp">
+                <h2>Join the Vibrant Community</h2>
+                <p>Connect with people from all walks of life in our dynamic and welcoming chat rooms. Share ideas,
+                    stories, and experiences with a global audience.</p>
+                <a href="/signup" class="btn">Get Started</a>
+            </div>
+
+            <div class="card animated fadeInUp" style="animation-delay: 0.5s;">
+                <h2>Instant Messaging, Anytime, Anywhere</h2>
+                <p>Experience the joy of instant messaging with HuruChat. Stay connected with friends and loved ones
+                    wherever you are. Engage in meaningful conversations on the go!</p>
+                <a href="/login" class="btn">Log In</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-circles">
+        <div class="user-circle">
+            <img src="https://via.placeholder.com/50" alt="User 1">
+            <div class="message-bubble">Hey there!</div>
+        </div>
+
+        <div class="user-circle">
+            <img src="https://via.placeholder.com/50" alt="User 2">
+            <div class="message-bubble">Ready to chat?</div>
+        </div>
+
+        <div class="user-circle">
+            <img src="https://via.placeholder.com/50" alt="User 3">
+            <div class="message-bubble">Let's catch up!</div>
+        </div>
+    </div>
+
+    <div class="bottom-menu">
+        <a href="#">About Us</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+    </div>
+
+    <!-- Additional Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

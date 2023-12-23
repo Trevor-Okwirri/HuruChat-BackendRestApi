@@ -1,0 +1,86 @@
+<!-- views/internal-server-error.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Server Error</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #292929;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .error-code {
+            color: #e44d26;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: titleFadeIn 1s ease-in-out;
+        }
+
+        .chat-app-name {
+            font-weight: bold;
+            color: #e44d26;
+            font-size: 1.3em;
+            transition: color 0.5s ease-in-out;
+        }
+
+        p {
+            color: #ccc;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes titleFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="error-code">500</div>
+        <p>Sorry, something went wrong on our end. We're working to fix it.</p>
+        <p>Please try again later or contact support if the issue persists.</p>
+        <p>Thank you for using <span class="chat-app-name">HuruChat</span>.</p>
+    </div>
+</body>
+
+</html>
