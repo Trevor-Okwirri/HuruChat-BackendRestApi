@@ -19,7 +19,6 @@ const { getStorage } = require("firebase/storage");
 const app = express();
 
 // Initialize Firebase with your config
-// Make sure to replace the config with your Firebase project config
 const firebaseConfig = {
   apiKey: "AIzaSyD4LibZ1PtMlZUEsJnI1qerP5ts1h-N-GA",
 
